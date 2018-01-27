@@ -1,14 +1,16 @@
-# deep-rl
-Collection of Deep Reinforcement Learning algorithms.
+This is just a minor tweak from [this](https://github.com/pemami4911/deep-rl) repo.
 
-Dependencies: 
+The algorithm is DDPG. See [this post](http://pemami4911.github.io/blog/2016/08/21/ddpg-rl.html) as a great intro to the algorithm.
+
+The main difference is that this repo's version uses [roboschool](https://github.com/openai/roboschool) instead of OpenAi Gym. Roboschool features the awesome Bullet 3D physics engine.
+
+The repo defaults to the classic cartpole problem, and with Roboschool the actions for this env are continuous (in this case representing motor voltage), which really lets the DDPG algorithm stretch its legs.
+
+Dependencies:
 
 * [Tensorflow 1.3.0](https://www.tensorflow.org/install/)
 * [tflearn](http://tflearn.org/installation/)
 * [OpenAI Gym 0.9.2](https://github.com/openai/gym/)
+* [Roboschool](https://github.com/openai/roboschool)
 
 Tested with Python 2.7 and Python 3.6
-
-So far: 
-
-1. DDPG - Deep Deterministic Policy Gradients, evaluated on the Pendulum-v0 environment in OpenAI Gym

@@ -1,15 +1,16 @@
-""" 
+"""
 Implementation of DDPG - Deep Deterministic Policy Gradient
 
-Algorithm and hyperparameter details can be found here: 
+Algorithm and hyperparameter details can be found here:
     http://arxiv.org/pdf/1509.02971v2.pdf
 
-The algorithm is tested on the Pendulum-v0 OpenAI gym task 
+The algorithm is tested on the Pendulum-v0 OpenAI gym task
 and developed with tflearn + Tensorflow
 
 Author: Patrick Emami
 """
 import tensorflow as tf
+import roboschool
 import numpy as np
 import gym
 from gym import wrappers
@@ -359,7 +360,7 @@ def main(args):
                                float(args['critic_lr']), float(args['tau']),
                                float(args['gamma']),
                                actor.get_num_trainable_vars())
-        
+
         actor_noise = OrnsteinUhlenbeckActionNoise(mu=np.zeros(action_dim))
 
         if args['use_gym_monitor']:
@@ -386,7 +387,7 @@ if __name__ == '__main__':
     parser.add_argument('--minibatch-size', help='size of minibatch for minibatch-SGD', default=64)
 
     # run parameters
-    parser.add_argument('--env', help='choose the gym env- tested on {Pendulum-v0}', default='Pendulum-v0')
+    parser.add_argument('--env', help='choose the gym env- tested on {Pendulum-v0}', default='RoboschoolInvertedPendulum-v1')
     parser.add_argument('--random-seed', help='random seed for repeatability', default=1234)
     parser.add_argument('--max-episodes', help='max num of episodes to do while training', default=50000)
     parser.add_argument('--max-episode-len', help='max length of 1 episode', default=1000)
@@ -397,9 +398,9 @@ if __name__ == '__main__':
 
     parser.set_defaults(render_env=False)
     parser.set_defaults(use_gym_monitor=True)
-    
+
     args = vars(parser.parse_args())
-    
+
     pp.pprint(args)
 
     main(args)
