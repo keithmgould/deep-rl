@@ -6,7 +6,7 @@ The main difference is that this repo uses [roboschool](https://github.com/opena
 
 The repo defaults to the classic cartpole problem, and with Roboschool the actions for this env are continuous (in this case representing motor voltage), which really lets the DDPG algorithm stretch its legs.
 
-<img src="demo.gif" alt="Small Demo of Render" width="200">
+<img src="demo.gif" alt="Small Demo of Render" width="600">
 
 
 Dependencies:
